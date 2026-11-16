@@ -301,3 +301,10 @@ Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown
   The user should not need to enter friction per tool.
 - **Weak point rating:** entered on the last calculation page (IWI Design), not in the tool string editor.
 - IWI-101 rows: resolved – full list received.
+- **Strings in use:** only the 6 detailed strings above. The other 8 are not used now, but the new app
+  must be able to add new tool strings later.
+- **Where strings come from:** the user builds logging tool strings in another app/section (WLI –
+  "Originated from WLI", "WLI Tool Import" button). They appear here automatically. The user never
+  edits strings in this editor.
+  → New app needs an easy **import** of tool strings from that source, plus manual create/edit as backup.
+  → Open question: what file format can the other app export (Excel, CSV, XML, other)?
