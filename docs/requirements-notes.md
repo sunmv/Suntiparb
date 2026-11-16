@@ -308,3 +308,46 @@ Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown
   edits strings in this editor.
   → New app needs an easy **import** of tool strings from that source, plus manual create/edit as backup.
   → Open question: what file format can the other app export (Excel, CSV, XML, other)?
+
+---
+
+## 3. Fluid (Fluid Manager)
+
+### Fluid Manager list
+- Toolbar: save, cut/copy/paste, help, move up/down, colour; Material Selection Filters: "Material Library", "Well Intervention"
+- Columns: Fluid Name, Fluid Description, Fluid Color, Properties (Edit...), Proppant (Select...),
+  Absolute Volume Factor (L/kg), Proppant Concentration (kg/m³) – proppant columns empty / not used
+- Last row "New – Select..." adds a fluid
+
+| # | Fluid Name | Description | Color |
+|---|---|---|---|
+| 1 | 1.48 SG | 1.48 SG | DeepSkyBlue |
+| 2 | 1.65 SG | 1.65 SG | Blue |
+| 3 | 1.75 SG | 1.75 SG | Yellow |
+| 4 | 1.49 SG | 1.49 SG | Purple |
+| 5 | 1.56 SG | 1.56 SG | White |
+| 6 | 1.13 sg | 1.13 sg | Olive |
+| 7 | 1.20 SG | 1.20 SG | DarkCyan |
+| 8 | 1.18 SG | 1.18 SG | PaleGreen |
+| 9 | 1.28 SG | 1.28 SG | LightBlue |
+| 10 | 1.3 SG | 1.3 SG | DarkGreen |
+
+### Fluid properties dialog ("Fann Fluid"), example 1.48 SG
+| Field | Value |
+|---|---|
+| Name | 1.48 SG |
+| Fluid Type | Mud (options: Mud, Cement, Other) |
+| Reference Temperature | 25.0 °C |
+| PVT Model – Density | 1480.000 kg/m³ |
+| Compressible | unchecked (if checked: Mud Base Fluid, Oil-Water Ratio %, Salt kg/sack, Average Solids Gravity) |
+| Rheology Model | Bingham Plastic |
+| Cement Classification | Other (disabled) |
+| Rheology Parameters | Enter (option: Calculate) |
+| PV | 30.000 mPa·s |
+| YP | 16.000 lbf/100ft² |
+
+### Requirements
+- User creates muds here; names them by density in SG.
+- Density entered in **SG by default**, but editable in **ppg** too (1 SG = 8.345 ppg = 1000 kg/m³).
+- Proppant / cement / compressible options not used.
+- Open question: are PV / YP changed per mud, or always the default 30 / 16?
