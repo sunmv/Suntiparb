@@ -293,6 +293,11 @@ Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown
 | Hostile Steel Cabbage Head 5.5In1 | 127.0 | 0 | 0.28 | 15.88 |
 | HSMHF1 | 69.8 | 0 | 0.67 | 9.98 |
 
-### Open questions (tool string)
-- Where does the old app set friction / contact type (wheel vs standoff vs sliding)? Probably in IWI Design.
-- Where is the weak point (cable head) rating entered?
+### Answers from user (tool string)
+- **Friction / contact type:** there is no friction setting for wheels or standoffs. The user just adds the
+  wheel/standoff rows to the tool string and the old app works out the friction automatically.
+  → New app must do the same: detect wheel / standoff / decentraliser rows (by tool type in the library,
+  or by name keywords such as "Wheel", "Standoff", "Decentraliser") and apply a built-in friction value.
+  The user should not need to enter friction per tool.
+- **Weak point rating:** entered on the last calculation page (IWI Design), not in the tool string editor.
+- IWI-101 rows: resolved – full list received.
