@@ -99,7 +99,7 @@ Tree menu:
 - No weak point rating visible in this editor.
 
 ### IWI-101-HTC IW JAR-SERPENTINE (Total 910.65 kg, 35.66 m, Max OD 120.7 mm)
-Screenshot shows the first rows only – list continues below (needs scroll).
+Complete (37 rows; sums check: 910.64 kg, 35.66 m).
 
 | Name | OD mm | ID | Len m | Wt kg |
 |---|---|---|---|---|
@@ -137,7 +137,9 @@ Screenshot shows the first rows only – list continues below (needs scroll).
 | HACRt Temperature Sub1 | 69.8 | 0 | 0.03 | 0.87 |
 | HACRt Temperature Sub2 I-Wheel Assembly | 100.6 | 0 | 0.09 | 7.19 |
 | HACRt Temperature Sub3 Hacrt Hostile Metal Standoff | 108.0 | 0 | 0.14 | 6.23 |
-| *(more rows not visible)* | | | | |
+| HACRt Temperature Sub4 | 69.8 | 0 | 0.11 | 3.09 |
+| HSMHF1 | 69.8 | 0 | 0.67 | 9.98 |
+| Sinker Tung 7ft1 | 69.9 | 0 | 2.13 | 36.29 |
 
 ### IWI-401-HSFT2 JAR CHAMBERS-SERP (Total 802.2 kg, 30.47 m, Max OD 108 mm)
 | Name | OD mm | ID | Len m | Wt kg |
@@ -294,4 +296,3 @@ Screenshot shows the first rows only – list continues below (needs scroll).
 ### Open questions (tool string)
 - Where does the old app set friction / contact type (wheel vs standoff vs sliding)? Probably in IWI Design.
 - Where is the weak point (cable head) rating entered?
-- Remaining rows of IWI-101-HTC IW JAR-SERPENTINE (scroll down).
