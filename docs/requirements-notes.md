@@ -99,7 +99,7 @@ Tree menu:
 - No weak point rating visible in this editor.
 
 ### IWI-101-HTC IW JAR-SERPENTINE (Total 910.65 kg, 35.66 m, Max OD 120.7 mm)
-Complete (37 rows; sums check: 910.64 kg, 35.66 m).
+Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown).
 
 | Name | OD mm | ID | Len m | Wt kg |
 |---|---|---|---|---|
