@@ -350,4 +350,33 @@ Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown
 - User creates muds here; names them by density in SG.
 - Density entered in **SG by default**, but editable in **ppg** too (1 SG = 8.345 ppg = 1000 kg/m³).
 - Proppant / cement / compressible options not used.
-- Open question: are PV / YP changed per mud, or always the default 30 / 16?
+- **PV / YP:** user always uses the default **PV 30, YP 16** (not a mud specialist).
+  → New app: default PV 30 / YP 16 pre-filled, can be changed if a mud report is available.
+  Only Density, PV and YP are needed for the calculation.
+
+### Example mud report (field data, for reference)
+"Well TD Mud Properties" – the source of the values. Only Density / PV / YP are used by the sim.
+
+| Field | Value |
+|---|---|
+| Date | 3-Aug-26 |
+| Well | BK-32-N_R |
+| Time | 7:00 AM |
+| Mud Type | CARBO DRILL SDF |
+| **Density, SG** | **1.26** |
+| Funnel Viscosity | 65 s/qt |
+| **Plastic Viscosity** | **30** |
+| **Yield Point** | **17** |
+| Gels | 11/15/17 |
+| Electrical Stability | 982 V |
+| Oil/Water ratio | 82 / 18 |
+| Cl- Whole Mud | 34,000 mg/L |
+| CaCl2 (%wt) | 25.20 |
+| Chlorides in whole mud / water phase | 34,000 / 197,727 ppm |
+| Corrected Solids | 12.80 % vol |
+| Barite | 6.94 % vol |
+| Fluid loss (175C) | 1.8 cc |
+| Circulation at btm stopped | 2:00 AM |
+| Brine Type / Oil Type | CaCl2 / Saraline 185V |
+
+- Idea: mud entry form shows only Density (SG/ppg), PV, YP – the three numbers to copy from the mud report.
