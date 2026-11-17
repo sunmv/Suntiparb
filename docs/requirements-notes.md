@@ -524,6 +524,7 @@ Effect on tension (explained to user): small. Mainly through mud properties (den
 with temperature – but "Compressible" is off in Fluid Manager, so density is probably constant) and
 cable thermal stretch (affects depth, not tension). Suggested check: run the old app twice with
 different BHT (e.g. 100 vs 193 °C) and compare tension.
+**TODO (user, later):** run same job with BHT 193 °C and 100 °C in the old app, send both max tensions.
 
 Requirements idea:
 - Temperature optional: just enter BHT (+ surface temp default 25 °C) – never block the simulation.
