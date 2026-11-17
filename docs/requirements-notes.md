@@ -440,3 +440,37 @@ Requirements idea:
 - Two templates: "6-1/8 section" and "8.5 section" – pick one, enter casing shoe depth and TD.
 - Casing ID from a built-in casing table (size + weight → ID).
 - Offshore fields (water depth, air gap) kept for depth reference.
+
+### 4b. Directional Data
+Main window ("Directional Data – Current well"):
+- Deviated Well ☑, row count (142 rows), display mode Dev. / TVD / Build, Azimuth ☑
+- Wellbore selector "Main Wellbore", Add / Edit / Delete Lateral (laterals not used)
+- Table columns: Length (m), MD (m), Dev. (°), TVD (m), Build (°/100 m), Azimuth (°), DLS (°/100 m)
+- Footer: Max values (Length 30.0, MD 3914.0, Dev 41.9, TVD 3102.3, Build 17.81, DLS 17.80),
+  Departure 1825.5 m, Wellbore Geometry Bottom MD 3913.0 m
+
+Import Directional Survey dialog:
+- File Name + Browse; ☑ Keep this file as an attachment in the database
+- Start / End Import at Row
+- Measured Depth Column (1) + unit dropdown, Inclination Column (2), ☑ Azimuth Column (3)
+- Reducing Filter: ● No Filter / ○ Blocking Algorithm (max blocks 20), Smoothing Factor 1
+- Preview grid (Row #, Col. 1 … Col. 7)
+
+User workflow: open Directional Data → Import → pick text file → set rows/columns → OK.
+
+### Sample survey file (well plan text file, kept outside the repo for now)
+- Tab-separated text; row 1 = column names, row 2 = units, then 142 data rows
+- Columns: MD (m), Inc (°), Az (°), CL (m), TVD (m), TVD (MSL) (m), N.Offset, E.Offset, VS, Northing,
+  Easting, Latitude, Longitude, DLS (°/10 m)
+- Only MD, Inc, Az are needed (columns 1–3); the rest can be used to check our calculation.
+- TD 3913.99 m MD, TVD 3102.3 m, max Inc 41.9°, max DLS 1.78°/10 m (= 17.8°/100 m)
+- TVD (MSL) = TVD − 30.3 m → RKB 30.3 m above MSL in this plan
+  (Wellbore Geometry example showed Air Gap 39.6 m – to confirm).
+- **Verified:** minimum curvature from MD/Inc/Az reproduces the file
+  (TVD 3102.32 vs 3102.3; max TVD difference 0.03 m; departure 1825.5 m = old app).
+
+Requirements idea:
+- Open / drag-and-drop the survey text file; auto-detect header rows and MD/Inc/Az columns
+  (manual column choice still possible); instant preview and 2D/3D plot.
+- Handle DLS units °/10 m, °/30 m, °/100 ft, °/100 m.
+- Blocking/smoothing filter not needed – the new app is fast enough for all rows.
