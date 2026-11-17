@@ -465,7 +465,8 @@ User workflow: open Directional Data → Import → pick text file → set rows/
 - Only MD, Inc, Az are needed (columns 1–3); the rest can be used to check our calculation.
 - TD 3913.99 m MD, TVD 3102.3 m, max Inc 41.9°, max DLS 1.78°/10 m (= 17.8°/100 m)
 - TVD (MSL) = TVD − 30.3 m → RKB 30.3 m above MSL in this plan
-  (Wellbore Geometry example showed Air Gap 39.6 m – to confirm).
+  (Wellbore Geometry showed Air Gap 39.6 m – user: air gap is not kept up to date because it is not
+  used in the calculation. → New app: offshore water depth / air gap optional, not needed for tension.)
 - **Verified:** minimum curvature from MD/Inc/Az reproduces the file
   (TVD 3102.32 vs 3102.3; max TVD difference 0.03 m; departure 1825.5 m = old app).
 
