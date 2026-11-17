@@ -500,3 +500,31 @@ Notes:
 - User does **not** like editing friction in this editor – prefers to edit it on the **last page
   (simulation summary)**, to be shown later. → New app: friction editable on the summary/results page,
   with instant recalculation. ("Default Friction Coefficients..." button not used.)
+
+### 4d. Temperature Profile
+User only opens this page because the tension sim gives an **error if temperature is not updated**.
+
+Inputs (°C):
+| Field | Value | At depth |
+|---|---|---|
+| Ambient | 25 | |
+| Injected Fluid | 25 | |
+| Proppant | 25 | |
+| Sea Water | 25 | 39.64 m MD (39 m TVD) |
+| Earth, Mudline | 30 | 116.28 m MD (116 m TVD) |
+| BH Static | 193 | 3913 m MD (3101 m TVD) |
+| Gradient | 54.15 mK/m (calculated) | |
+
+- ☐ Enter Full Temperature Profile; ☐ Specify Pre-Job Wellbore Temperature (disabled)
+- Table: MD (m), TVD (m), Undisturbed Temperature (°C):
+  30.38 / 30.38 / 25 ; 90.21 / 90.21 / 30 ; 2383.00 / 1895.88 / 173
+- Right side: plot of undisturbed temperature vs MD (straight line ~25 °C at surface → 193 °C at TD)
+
+Effect on tension (explained to user): small. Mainly through mud properties (density / PV / YP change
+with temperature – but "Compressible" is off in Fluid Manager, so density is probably constant) and
+cable thermal stretch (affects depth, not tension). Suggested check: run the old app twice with
+different BHT (e.g. 100 vs 193 °C) and compare tension.
+
+Requirements idea:
+- Temperature optional: just enter BHT (+ surface temp default 25 °C) – never block the simulation.
+- Use BHT for warnings (tool / cable temperature rating) rather than tension.
