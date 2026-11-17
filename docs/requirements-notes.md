@@ -562,5 +562,7 @@ Requirements:
   summary table of all wells + one page per well (same layout as above).
 - Export to **PowerPoint** (and PDF).
 - 3D well view rendered automatically for the report.
-- Note: friction in this example is 0.30/0.30 for both CH and OH (differs from the usual defaults
-  0.30/0.25 CH, 0.40/0.30 OH) – to confirm.
+- **Friction for platform sims: 0.30/0.30** for both CH and OH (RIH/POOH). This is different from
+  single logging jobs (CH 0.30/0.25, OH 0.40/0.30). → Two friction presets: "Logging job" and "Platform".
+- Platform report size: **4 to 30 wells**.
+- **Priority:** build platform mode **after** the main single-well tension sim is complete (phase 2).
