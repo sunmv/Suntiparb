@@ -631,3 +631,45 @@ Well, Friction Profile, Cable ("Camesa 7Q49RTZZ-EEHSnew"), BHA, toggles: **Inclu
 - This is the **main page** for the tension sim; user will show more detail of how they use it.
 - Open questions: weak point 5000 vs 9000 – per job? What do the Calc buttons / graphs show?
   Is friction edited from this page ("last page")?
+
+### 6a. Defaults and Settings (project setup)
+New runs take their starting values from here ("NOTE: These defaults are only used when creating a new run").
+Tabs: Project Defaults, Row Defaults, Calculation Settings, Report Settings (not shown yet).
+
+**Project Defaults**
+- Well: "Current well" (+ Well Manager button); ☑ Use this well for the entire design project;
+  ☐ Change all runs to use this well
+- Friction Profile: "Current well" (+ Profile Editor button)
+- Cable: "Camesa 7Q49RTZZ-EEHSnew: 12.446 mm"; ☐ Change all runs to use this cable
+- BHA (optional): "IWI-101-HTC SO JAR-SERPENTINE: 33.6 m 120.650 mm 87…"; ☐ Change all runs to use this BHA
+- Buttons: Run Base Names..., BHA Options...
+
+**Row Defaults** (Import / Export buttons)
+- Initial Fluid Positions: ○ Fluid Profile / ● Use Single Fluid: 1.18 SG (1180 kg/m³)
+- Fluid to Pump/Flow: 1.18 SG (1180 kg/m³)
+- Stuffing Box Friction: 0 lbf
+- Cable Speed RIH 40 m/min, Cable Speed POOH 20 m/min
+- Cable Eccentricity: 75 %
+
+**Calculation Settings** (apply to whole project; Import / Export)
+- General: Stage Table Calculation Resolution 1 min; ● Save Data to Disk at End of Each Row Only;
+  Stage Table Calculation Delay 0 ms; **Maximum Calculation Length 30.5 m; Maximum Depth Increment 30.5 m** (= 100 ft);
+  ☑ Force Trip In/Out Simulations (combine consecutive rows using same BHA in same run);
+  ☐ Auto-Attach Generated Graphs
+- BHA Options: ☑ **Include Weak Point in Calculations**, **Weak Point Safety Factor 70 %**;
+  ☑ Enable Rigid Tool Fit Error Checks; Rigid Tool Bending Force Model: "BHA Length-based Average OD"
+- Safety Factors: **Safe Working Load 53.33 %**; Compression Criteria 0 lbf
+- Compression / Yield / Drum Crush / Weak Point Hit: ● Prompt with option on occurrence
+  (○ Continue running / ○ Stop running)
+- Drum Crush: ☑ Enable Drum Crush Detection; Threshold 25 %; Warning Factor 2; Error Factor 3
+
+Observations:
+- SWL 53.33 % × cable breaking strength 30,000 lbf = **16,000 lbf** → matches the magenta "maximum pulling
+  tension" line (~16,000 lbf) in the platform report (labelled "50%" there).
+- Weak point safety factor 70 % → max allowed pull at weak point = 70 % of weak point rating (to confirm).
+- Depth step 30.5 m – the new app can use a finer step (fast enough).
+
+Requirements idea:
+- One **Settings** page with project defaults (well, cable, BHA, fluid, speeds, eccentricity, friction preset)
+  and safety settings (SWL %, weak point SF %); new runs copy these values.
+- Hide rarely used options (stage table, save-to-disk, delay, drum crush factors) under "Advanced".
