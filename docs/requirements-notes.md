@@ -529,3 +529,38 @@ different BHT (e.g. 100 vs 193 °C) and compare tension.
 Requirements idea:
 - Temperature optional: just enter BHT (+ surface temp default 25 °C) – never block the simulation.
 - Use BHT for warnings (tool / cable temperature rating) rather than tension.
+
+### 4e. 3D Wellbore Graph
+- Window with Reset (View), Refresh, Properties..., Zoom dropdown + slider; 3D box with well path (yellow)
+  and its projections on the walls (white lines); rotate / zoom.
+- **Not needed for single-well logging jobs.** Needed only for the **platform tension sim report**
+  (all wells on a platform), where a 3D picture is pasted on each well's slide.
+
+---
+
+## 5. Platform tension sim report (PowerPoint, made by user)
+One slide per well. Example well **1_AT-43-A(05)**:
+
+Header table:
+| No. | Well Name | 7" CSG MD (m) | 7" CSG TVD (m) | TD MD (m) | TD TVD (m) | MW (sg) | Friction CH | Friction OH | WP (lbs) | Max Tension (lbs) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 1_AT-43-A(05) | 2672.02 | 2201.16 | 3697.69 | 3194.16 | 1.79 | 0.30/0.30 | 0.30/0.30 | 9000 | 6829 |
+(CH = cased hole, OH = open hole, friction shown as RIH/POOH; WP = weak point)
+
+Plots on the slide:
+1. **"Run (1_AT-43-A(05)-HTC_1) – Weight [Trip In/Out]"**: depth (m, 0–4000) vs surface weight (lbf, 0–15000+)
+   - Blue = RIH tension at logging-down speed
+   - Green = POOH tension at normal logging-up speed (max ≈ 6829 lbf at TD)
+   - Red = surface tension when cable is estimated to enter compression
+   - Magenta = maximum pulling tension (50%) – vertical line ≈ 16,000 lbf
+2. **Inclination + DLS×10 (deg/30 m)** vs depth (m)
+3. **3D wellbore picture** (screenshot from 3D Wellbore Graph)
+- Remark/legend box explaining the colours (text above).
+
+Requirements:
+- **Multi-well / platform mode:** run the sim for many wells, then generate a report automatically:
+  summary table of all wells + one page per well (same layout as above).
+- Export to **PowerPoint** (and PDF).
+- 3D well view rendered automatically for the report.
+- Note: friction in this example is 0.30/0.30 for both CH and OH (differs from the usual defaults
+  0.30/0.25 CH, 0.40/0.30 OH) – to confirm.
