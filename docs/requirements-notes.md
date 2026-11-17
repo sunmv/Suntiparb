@@ -566,3 +566,52 @@ Requirements:
   single logging jobs (CH 0.30/0.25, OH 0.40/0.30). → Two friction presets: "Logging job" and "Platform".
 - Platform report size: **4 to 30 wells**.
 - **Priority:** build platform mode **after** the main single-well tension sim is complete (phase 2).
+
+---
+
+## 6. IWI Design (without WLI SS) – main simulation page
+Tabs: **Force**, **Stage Table**. Menus: File, Database, Edit, Run, Column, View, Options, Tools, Help.
+
+### Layout
+- Grouped by **Run**. Each run header: "Run N (name) – Type: Standard – Well – Friction Profile – Cable",
+  plus Calc buttons (purple = graph/snapshot, yellow = trip in/out graph, right side Calc).
+- Each run has 3 stage rows: **RIH** (surface → TD), **None** (stationary at TD), **POOH** (TD → surface);
+  "NEW" row adds a stage.
+
+### Columns (units)
+Graph (Snapshot / Trip In/Out) · Direction (RIH/None/POOH) · Start Depth (m) · End Depth (m) · BHA (tool string)
+· Min BHA Weight (kg) · Stuffing Box (lbf) · Initial Fluid Position Profile ([Use Single Fluids]) · IFP (...)
+· Name of Fluid in Well · Density of Fluid in Well (kg/m³) · Flow Direction (No Flow) · Pump/Flow Fluid Name
+· Pump/Flow Fluid Density (kg/m³) · Total Liquid Pump/Flow Rate (L/min) · Production Fluid Gas Rate (scmm)
+· WHP (kPa) · Cable Speed (m/min) · Tractor Pull (lbf) · Weak Point Low Limit (lbf) · Weak Point High Limit (lbf)
+· Eccentricity (%) · Comment · **Compression Depth (m)** · **Max Weight (lbf)** · Max… (more columns, cut off)
+
+### Example runs (well TD 3913 m)
+| Run | Stage | Dir | Start–End m | BHA | Min BHA wt kg | Fluid | Speed m/min | WP high lbf | Ecc % | Compression | Max Weight lbf |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 (HWST) | 1-1 | RIH | 0–3913 | T-15-HWST-JAR-SERPENTINE | 197.79 | 1.48 SG (1480) | 40 | 5000 | 75 | No Compression | 1904 |
+| | 1-2 | None | 3913–3913 | same | | | 0 | 5000 | 75 | | |
+| | 1-3 | POOH | 3913–0 | same | | | 40 | 5000 | 75 | | 6145 |
+| 2 (HSFT-II) | 2-1 | RIH | 0–3913 | IWI-401-HSFT2 JAR CHAMBERS-SERP | 218.13 | 1.48 SG | 40 | 5000 | 75 | No Compression | 2007 |
+| | 2-3 | POOH | 3913–0 | same | | | 40 | 5000 | 75 | | 6640 |
+| 3 | 3-1 | RIH | 0–3630 | IWI-301-HSFT JAR CHAMBERS-ATCHF | 222.51 | 1.75 SG (1750) | 40 | 5000 | 75 | No Compression | 1646 |
+| | 3-3 | POOH | 3630–0 | same | | | 40 | 5000 | 75 | | 7041 |
+Other values in all rows: Stuffing Box 0, Flow "No Flow", Pump fluid 1.18 SG (1180) at 0 L/min, gas 0,
+WHP 0, Tractor Pull 0, WP Low Limit 0.
+Run 3 has Well "[not set]" and Friction "[Default Coefficients]" → errors.
+
+### Error panel ("Correct the following errors")
+- Force Table (3-0): Well needs to be selected.
+- Force (Run 3): Well TD is 0.0 m. Please check the Wellbore Geometry inputs for the selected well ().
+
+### Status bar
+Well, Friction Profile, Cable ("Camesa 7Q49RTZZ-EEHSnew"), BHA, toggles: **Include Weak Point**, **Tool Fit On**,
+**Drum Crush On**.
+
+### Observations
+- Inputs that matter for user: direction, depths, BHA, fluid density, cable speed, weak point limit,
+  eccentricity. Pump/flow/WHP/tractor/production gas all zero (not used).
+- Outputs per stage: compression depth, max surface weight (lbf).
+- Weak point high limit 5000 lbf here vs 9000 lbs in platform report – per job.
+- Open questions: what is "Min BHA Weight" (197.79 kg is much less than the T-15 string's 608.93 kg)?
+  Typical cable speeds? What do the Calc buttons / graphs show? Where is friction edited (user said "last page")?
