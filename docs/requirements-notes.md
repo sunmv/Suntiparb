@@ -432,8 +432,8 @@ Packer, Blank, Screen, Sump Packer, Bridge Plug, Perforations, Treatment Interva
 
 **User only uses Casing + Open Hole.** Two standard well types:
 1. **6-1/8" section:** 7" casing (177.8 mm OD, 38.692 kg/m = 26 lb/ft, L-80, ID 159.4 mm) + 6-1/8" open hole (155.6 mm)
-2. **8.5" section:** 9-5/8" casing (244.5 mm OD) + 8.5" open hole (215.9 mm)
-   - Open question: 9-5/8" casing weight / grade / ID?
+2. **8.5" section:** 9-5/8" casing (244.5 mm OD, 47 lb/ft = 69.94 kg/m, L-80, ID 8.681" = 220.5 mm,
+   drift 8.525" = 216.5 mm) + 8.5" open hole (215.9 mm)
 
 Requirements idea:
 - Simple geometry editor: just Casing (shoe depth, size) + Open Hole (TD, bit size).
