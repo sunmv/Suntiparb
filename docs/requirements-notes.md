@@ -410,3 +410,33 @@ Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown
 - Editors for wellbore geometry, directional survey, friction profile, temperature profile.
 - Interactive 3D well view (rotate, zoom).
 - (Details of each editor to follow.)
+
+### 4a. Wellbore Geometry
+Header options (example "Current well"):
+- Deviated Well: ☑ ; Enable Perforation Friction Calculations: ☐
+- Offshore: ☑ – Water Depth 76.6 m, Air Gap 39.6 m, Sea Water Density 1031 kg/m³
+- Displace To: Bottom of Perfs; Crossover / MPT fields disabled; Column Filter: Required Data
+- Volume to Bottom of Perfs: 75.98 m³ (Details...), status "No Errors"
+- Right side: diameter-vs-depth diagram ("Fluid Flow Path")
+
+Section table columns: Type, Top MD (m), Bottom MD (m), Length (m), Description, OD (mm), Weight (kg/m), Grade, ID (mm), Data Source
+
+Example rows:
+| Type | Top MD | Bottom MD | Length | Description | OD mm | Wt kg/m | Grade | ID mm | Source |
+|---|---|---|---|---|---|---|---|---|---|
+| Casing | 0.0 | 1687.0 | 1687.0 | 177.8 mm Casing | 177.8 | 38.692 | L-80 | 159.4 | Redbook |
+| Open Hole | 1687.0 | 3913.0 | 2226.0 | 155.6 mm Open Hole | | | | 155.6 | |
+
+Type dropdown options: Open Hole, Casing, Liner, Drill Pipe, Tubing, Surface Lines (CT), Surface Lines (WH),
+Packer, Blank, Screen, Sump Packer, Bridge Plug, Perforations, Treatment Interval, Swellable Packer, Formation.
+
+**User only uses Casing + Open Hole.** Two standard well types:
+1. **6-1/8" section:** 7" casing (177.8 mm OD, 38.692 kg/m = 26 lb/ft, L-80, ID 159.4 mm) + 6-1/8" open hole (155.6 mm)
+2. **8.5" section:** 9-5/8" casing (244.5 mm OD) + 8.5" open hole (215.9 mm)
+   - Open question: 9-5/8" casing weight / grade / ID?
+
+Requirements idea:
+- Simple geometry editor: just Casing (shoe depth, size) + Open Hole (TD, bit size).
+- Two templates: "6-1/8 section" and "8.5 section" – pick one, enter casing shoe depth and TD.
+- Casing ID from a built-in casing table (size + weight → ID).
+- Offshore fields (water depth, air gap) kept for depth reference.
