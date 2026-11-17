@@ -613,5 +613,21 @@ Well, Friction Profile, Cable ("Camesa 7Q49RTZZ-EEHSnew"), BHA, toggles: **Inclu
   eccentricity. Pump/flow/WHP/tractor/production gas all zero (not used).
 - Outputs per stage: compression depth, max surface weight (lbf).
 - Weak point high limit 5000 lbf here vs 9000 lbs in platform report – per job.
-- Open questions: what is "Min BHA Weight" (197.79 kg is much less than the T-15 string's 608.93 kg)?
-  Typical cable speeds? What do the Calc buttons / graphs show? Where is friction edited (user said "last page")?
+- **Min BHA Weight:** user does not know; it changes with the BHA. Shown in **blue text** like other
+  calculated values (e.g. TVD in friction editor) → probably an **output**: minimum tool weight needed to
+  get down the well (overcome friction / WHP / stuffing box). T-15 197.79 kg, IWI-401 218.13 kg,
+  IWI-301 222.51 kg. To verify later.
+- **Cable speed:** user keeps **40 m/min for all tools** in the sim. Actual logging speeds by tool:
+
+| Tool | Up (POOH) m/min | Down (RIH) m/min |
+|---|---|---|
+| HSFT-I, HSFT-II | 40 | 40 |
+| HTC | 18 | 36 |
+| HQC – HFWS | 18 | 36 |
+| HQC – HWST | 9 | 18 |
+| HWST | 9 | 18 |
+
+  → New app idea: default 40 m/min, with optional tool-based speed presets (table above).
+- This is the **main page** for the tension sim; user will show more detail of how they use it.
+- Open questions: weak point 5000 vs 9000 – per job? What do the Calc buttons / graphs show?
+  Is friction edited from this page ("last page")?
