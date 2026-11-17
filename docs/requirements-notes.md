@@ -380,3 +380,33 @@ Complete (37 rows; sums check: 910.67 kg vs 910.65 shown, 35.65 m vs 35.66 shown
 | Brine Type / Oil Type | CaCl2 / Saraline 185V |
 
 - Idea: mud entry form shows only Density (SG/ppg), PV, YP – the three numbers to copy from the mud report.
+
+---
+
+## 4. Well (Well Manager)
+
+### Well Manager main window
+- Left: list of **Wells** (currently only "Current well")
+- Bottom buttons: Delete, Copy..., Export..., Import..., Verify...
+- Toolbar: print, new, open/save, import/export
+- Right "Editors and Viewers" buttons:
+  - Well Information
+  - Wellbore Geometry
+  - Directional Data
+  - Friction Profile Editor
+  - Temperature Profile
+  - Reservoir Data
+  - 3D Wellbore Graph
+
+### How the user uses it
+1. **Copy** an existing well to keep the same data (wellbore, directional data, etc.) as a starting point.
+2. Update: **Wellbore Geometry**, **Directional Data**, **Friction Profile**, **Temperature Profile**.
+3. Close Well Manager.
+- **3D Wellbore Graph:** opens a 3D view of the well – can rotate and zoom.
+- Not mentioned as used: Well Information, Reservoir Data, Verify (to confirm later).
+
+### Requirements
+- Well list with Copy (duplicate a well as a template), plus new/delete/import/export.
+- Editors for wellbore geometry, directional survey, friction profile, temperature profile.
+- Interactive 3D well view (rotate, zoom).
+- (Details of each editor to follow.)
