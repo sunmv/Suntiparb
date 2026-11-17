@@ -475,3 +475,25 @@ Requirements idea:
   (manual column choice still possible); instant preview and 2D/3D plot.
 - Handle DLS units °/10 m, °/30 m, °/100 ft, °/100 m.
 - Blocking/smoothing filter not needed – the new app is fast enough for all rows.
+
+### 4c. Friction Profile Editor
+- Friction Profile Name: "Current well"
+- Toolbar includes **"Default Friction Coefficients..."** button
+- Table columns: Top MD (m), Bottom MD (m), Top TVD (m), Bottom TVD (m), RIH Friction Coefficient,
+  POOH Friction Coefficient (TVD columns calculated from survey – shown in blue)
+- "Align with Well Geometry" button – makes intervals match casing / open hole sections
+- Right side: wellbore schematic (radius vs MD), options Full schematic / Effective ID only
+
+Example (= one row per well section):
+| Section | Top MD | Bottom MD | Top TVD | Bottom TVD | RIH µ | POOH µ |
+|---|---|---|---|---|---|---|
+| Casing | 0.0 | 1687.0 | 0.0 | 1333.7 | 0.30 | 0.25 |
+| Open hole | 1687.0 | 3913.0 | 1333.7 | 3101.5 | 0.40 | 0.30 |
+
+Notes:
+- Friction is set **per section, separately for RIH and POOH**.
+- Wheels / standoffs in the tool string adjust friction automatically (see tool string answers).
+- New app idea: friction rows created automatically from the well geometry (casing / open hole), with
+  default values pre-filled; user can edit them.
+- Open questions: does the user always use 0.30/0.25 (casing) and 0.40/0.30 (open hole)?
+  What does "Default Friction Coefficients..." show?
