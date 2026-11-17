@@ -495,5 +495,8 @@ Notes:
 - Wheels / standoffs in the tool string adjust friction automatically (see tool string answers).
 - New app idea: friction rows created automatically from the well geometry (casing / open hole), with
   default values pre-filled; user can edit them.
-- Open questions: does the user always use 0.30/0.25 (casing) and 0.40/0.30 (open hole)?
-  What does "Default Friction Coefficients..." show?
+- **User answer:** always the same values for every well → defaults in new app:
+  casing RIH 0.30 / POOH 0.25, open hole RIH 0.40 / POOH 0.30. Must still be changeable.
+- User does **not** like editing friction in this editor – prefers to edit it on the **last page
+  (simulation summary)**, to be shown later. → New app: friction editable on the summary/results page,
+  with instant recalculation. ("Default Friction Coefficients..." button not used.)
