@@ -458,7 +458,7 @@ Import Directional Survey dialog:
 
 User workflow: open Directional Data → Import → pick text file → set rows/columns → OK.
 
-### Sample survey file (well plan text file, kept outside the repo for now)
+### Sample survey file – `docs/samples/BK-53-V14_Rev2.0_M_Well_plan.txt` (full file, stored at user request)
 - Tab-separated text; row 1 = column names, row 2 = units, then 142 data rows
 - Columns: MD (m), Inc (°), Az (°), CL (m), TVD (m), TVD (MSL) (m), N.Offset, E.Offset, VS, Northing,
   Easting, Latitude, Longitude, DLS (°/10 m)
