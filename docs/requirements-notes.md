@@ -678,3 +678,21 @@ Requirements idea:
 - One **Settings** page with project defaults (well, cable, BHA, fluid, speeds, eccentricity, friction preset)
   and safety settings (SWL %, weak point SF %); new runs copy these values.
 - Hide rarely used options (stage table, save-to-disk, delay, drum crush factors) under "Advanced".
+
+### 6b. Run Options (per run)
+Opened from the run header row ("Run 1 (HWST) – Type: Standard – Well – Friction Profile – Cable").
+"Run Options – Forces Tab" dialog:
+- **Run Name** (required), e.g. "HWST"; Run Type: Standard (read-only)
+- **Well:** dropdown (from Well Manager) + Well Manager button; ☐ Update maximum depth input with Well TD
+- **Friction Profile:** dropdown + Profile Editor button
+- **Cable:** dropdown ("Camesa 7Q49RTZZ-EEHSnew: 12.446 mm") + cable editor button
+- BHA Options... ("Available options not applicable to selected BHA(s).")
+
+Pain points in the old app:
+- The tool string (BHA) is chosen **on every stage row** (RIH, None, POOH each have their own dropdown) –
+  user must change it 3 times.
+- Mud weight is also set **on every stage row**.
+
+Requirements (user):
+- Per run, set once: **Run name, Well, Friction, Cable, Tool string (one dropdown), Mud weight (one value)**.
+- Stage rows (RIH / stationary / POOH) inherit these run settings; only depths and speed per stage.
