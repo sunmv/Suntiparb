@@ -732,3 +732,62 @@ Requirements:
   report directly so Excel step is not needed.
 - Show tool-bending / tool-fit warnings in plain language on the chart (e.g. marker at 2020 m).
 - Open: user to share the Excel template + an example of pasted "graph data".
+
+---
+
+## 7. Excel job worksheet (user's report tool)
+File: "BK-53-V_6.125 Job Worksheet PTT.xlsx" (not stored in repo – contains client/personnel info).
+Many sheets: Main, well info, Client Well (CBL), Master list, Header, Cable Book, CustSat, Client Well, Job Stat,
+FM Marker, Z-Chart, Mud Property, Survey data, **PreDrill**, **PostDrill**, tensionCal, **Actual tension**,
+**Predrill tension sim**, **PostDrill tension sim**, Sim report, PostDrill PP, Tension Sum, Z-Chart - A4,
+Well Schematic, SO number.
+
+### How the old app's results get into Excel
+Right-click chart → Copy Graph Data → paste into an Excel **table** on sheet **PreDrill**:
+- Chart 1 (Weight [Trip In/Out]) → table **PreWeight_1** (run 1), PreWeight_2 … _4, PreWeightCBL_1 … _3
+- Chart 2 (Cable Head Tension) → table **PreHead_1**, PreHead_2 … _4, PreHeadCBL_1 … _3
+- Chart 3 (Inclination/DLS) → table **PreSurveyHTC** (PreSurveyCBL for CBL run)
+- PostDrill sheet has the same set (PostWeight_n, PostHead_n, PostSurveyHTC …) plus ActualRIH/ActualPOOH tables
+  (real tension from the job – to be explained later).
+
+### "Copy Graph Data" text format (must be reproduced exactly)
+```
+Title 1:      | Run (HWST) - Weight [Trip In/Out]
+X-Axis:
+              | Label:   | Surface Weight (lbf)
+              | Minimum: | 0
+              | Maximum: | 17500
+Y-Axis #1:
+              | Label:   | Depth (m)
+              | Minimum: | 0
+              | Maximum: | 4000
+Curve Data:
+Compression 1 |  | Trip In 1 |  | Trip Out 3 |  | Yield 3 |  | Trip Out 3 Weak Point High |
+Surface Weight (lbf) | Depth (m) | Surface Weight (lbf) | Depth (m) | ...   (value / depth pairs per curve)
+<numbers…>
+```
+- Weight table columns (Excel names): Compress, Depth1, RIH, Depth2, POOH, Depth3, MaxPull, Depth4,
+  Max depth break WP, Depth5 → curves Compression 1, Trip In 1, Trip Out 3, Yield 3, Trip Out 3 Weak Point High
+- Head table: HeadRIH, Depth1, HeadPOOH, Depth2, Yield, Depth3 → Trip In 1, Trip Out 3, Yield 3
+- Survey table: Depth (m), Inclination, DLS (title = well name, X axis "Degree (°)" 0–50)
+- Axis: weight/tension 0–17500 lbf; depth 0–4000 m
+- Depth step **30.48 m (100 ft)**; ~130 points per curve for TD 3913 m. RIH curves listed top→bottom,
+  POOH / Yield / Weak Point curves listed bottom→top (TD first).
+
+### Reference results from the old app (saved as CSV for testing the new app)
+Folder `docs/reference/` (exact copy of the pasted data):
+- `run1_HWST_weight.csv`, `run1_HWST_cablehead.csv` – Run 1 HWST (T-15-HWST-JAR-SERPENTINE, 1.48 SG, TD 3913 m)
+- `run2_HSFT-II_weight.csv`, `run2_HSFT-II_cablehead.csv` – Run 2 HSFT-II (IWI-401-HSFT2 JAR CHAMBERS-SERP)
+- `survey_inclination_dls.csv`
+
+| Run | Trip In at TD (surface) | Trip Out at TD (surface) | Compression at TD | WP High at TD | Yield | Head RIH at TD | Head POOH at TD |
+|---|---|---|---|---|---|---|---|
+| 1 HWST | 1904 lbf | 6145 lbf | 1606 lbf | 12,385 lbf | ~15,990–15,996 | 501 lbf | 921 lbf |
+| 2 HSFT-II | 2007 lbf | 6640 lbf | 1604 lbf | 12,371 lbf | ~15,990–15,996 | 680 lbf | 1253 lbf |
+- Max values match the IWI Design page (1904 / 6145 and 2007 / 6640) ✔
+- Weak Point High = 5000 lbf at surface → the 5000 lbf limit is used directly in the chart.
+- **These are the test targets:** the new calculation must reproduce these curves within an agreed tolerance.
+
+### Requirements
+- New app: **"Copy Graph Data"** button per chart that puts the same text on the clipboard → user's Excel keeps working.
+- Also "Export to Excel": fill tables PreWeight_n / PreHead_n / PreSurveyHTC directly (later).
