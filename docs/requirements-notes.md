@@ -696,3 +696,37 @@ Pain points in the old app:
 Requirements (user):
 - Per run, set once: **Run name, Well, Friction, Cable, Tool string (one dropdown), Mud weight (one value)**.
 - Stage rows (RIH / stationary / POOH) inherit these run settings; only depths and speed per stage.
+
+### 6c. Results – Calculate → 3 charts (Run 1 HWST example)
+1. **"Run (HWST) – Weight [Trip In/Out]"** – depth (m) vs **Surface Weight (lbf)** – MAIN tension sim
+   - Compression 1 (red): surface weight at which cable goes into compression (~0 → ~1600 lbf at TD)
+   - Trip In 1 (green): RIH surface weight (~1000 → ~1900 lbf)
+   - Trip Out 3 (blue): POOH surface weight (~1000 → ~6100 lbf at TD)
+   - Trip Out 3 Weak Point High (purple dashed): surface weight at which weak point would break
+     (~5000 at surface → ~12,500 lbf at TD)
+   - Yield 3 (dark red): max allowed surface pull, vertical line at ~16,000 lbf
+2. **"Run (HWST) – Cable Head Tension [Trip In/Out]"** – depth vs **Tension at cable head (lbf)**
+   – user uses this for the **after-job report**
+   - T-15-HWST-JAR-SERPENTINE High Limit (red dashed): weak point limit, vertical at 5000 lbf
+   - Trip In 1 (green) ~500 lbf; Trip Out 3 (blue) ~1000 lbf
+   - Yield 3 (dark red): max cable-head tension allowed (~16,000 at surface → ~7,500 lbf at TD)
+3. **"Inclination/DLS Graph – Current well"** – depth vs degree: Inclination (red), DLS (green)
+
+Error List after calculation:
+- "Starting Trip Out calculations for Row 3 of Run 1 (HWST)…"
+- **"ERROR: BHA starts bending at well depth of 2020 m when POOH. Max length to 3913 m without bending is 14.55 m."**
+  (tool fit / rigid tool check)
+- "Completed Trip Out calculations…"; "Did not successfully complete all calculations."
+
+Chart right-click menu: File, Edit (Copy Graph, **Copy Graph Data**, Format for Copy/Metafiles), View, Objects,
+Defaults, About, Area Properties, Add Annotation, Add SmartLine.
+
+**User workflow today:** does NOT use the chart pictures. Right-click → **Copy Graph Data** → paste into
+**Excel** → Excel template builds the report (e.g. the platform PowerPoint slide).
+
+Requirements:
+- Same 3 charts, interactive (hover values, zoom), clear legend names (not "Trip Out 3", "Yield 3").
+- **Export results** directly (Excel/CSV) in the format the user's Excel template expects – or generate the
+  report directly so Excel step is not needed.
+- Show tool-bending / tool-fit warnings in plain language on the chart (e.g. marker at 2020 m).
+- Open: user to share the Excel template + an example of pasted "graph data".
