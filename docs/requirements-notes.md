@@ -725,7 +725,9 @@ Defaults, About, Area Properties, Add Annotation, Add SmartLine.
 **Excel** → Excel template builds the report (e.g. the platform PowerPoint slide).
 
 Requirements:
-- Same 3 charts, interactive (hover values, zoom), clear legend names (not "Trip Out 3", "Yield 3").
+- Same 3 charts, interactive (hover values, zoom). **Keep the exact same titles and legend labels as the old
+  app** ("Compression 1", "Trip In 1", "Trip Out 3", "Trip Out 3 Weak Point High", "Yield 3", "<BHA> High Limit",
+  "Inclination", "DLS", chart titles) – user: the report must look the same for all engineers.
 - **Export results** directly (Excel/CSV) in the format the user's Excel template expects – or generate the
   report directly so Excel step is not needed.
 - Show tool-bending / tool-fit warnings in plain language on the chart (e.g. marker at 2020 m).
