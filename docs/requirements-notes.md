@@ -666,6 +666,9 @@ Tabs: Project Defaults, Row Defaults, Calculation Settings, Report Settings (not
 Observations:
 - SWL 53.33 % × cable breaking strength 30,000 lbf = **16,000 lbf** → matches the magenta "maximum pulling
   tension" line (~16,000 lbf) in the platform report (labelled "50%" there).
+  **User: 16,000 lbf is a fixed number from the client** (max allowed pull). 53.33 % is just the value
+  that gives 16,000 lbf with this cable. → New app: enter **Max allowed pull (lbf) directly** (default
+  16,000 lbf), with % of breaking strength shown as information (or as an alternative input).
 - Weak point safety factor 70 % → max allowed pull at weak point = 70 % of weak point rating (to confirm).
 - Depth step 30.5 m – the new app can use a finer step (fast enough).
 
