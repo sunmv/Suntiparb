@@ -649,7 +649,8 @@ Tabs: Project Defaults, Row Defaults, Calculation Settings, Report Settings (not
 - Fluid to Pump/Flow: 1.18 SG (1180 kg/m³)
 - Stuffing Box Friction: 0 lbf
 - Cable Speed RIH 40 m/min, Cable Speed POOH 20 m/min
-  (User changes POOH to 40 by hand on every run → new app default: **RIH 40 / POOH 40 m/min**.)
+  (User: keep defaults **RIH 40 / POOH 20 m/min**, editable in Settings; every new run copies the defaults,
+  and the user changes a run's speed by hand when needed, e.g. POOH 40.)
 - Cable Eccentricity: 75 %
 
 **Calculation Settings** (apply to whole project; Import / Export)
